@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom modern variables for a sleek, dark-accented look */
+:root {
+  /* Primary Green (for a natural, crop-related feel) */
+  --color-primary: #10b981; /* Emerald 500 */
+  /* Secondary Accent (for charts, loading) */
+  --color-accent: #3b82f6; /* Blue 500 */
+  /* Background (off-black/dark grey for modern contrast) */
+  --color-background: #0f172a; /* Slate 900 */
+  /* Surface/Card (slightly lighter than background) */
+  --color-surface: #1e293b; /* Slate 800 */
+  /* Text */
+  --color-text-light: #f1f5f9; /* Slate 100 */
+  --color-text-muted: #94a3b8; /* Slate 400 */
+}
+
+/* Set up the global background and text colors */
+body {
+  @apply bg-[color:var(--color-background)] text-[color:var(--color-text-light)] font-sans;
+}
+
+/* Custom class for the main container to handle a modern, centered layout */
+.modern-container {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+}

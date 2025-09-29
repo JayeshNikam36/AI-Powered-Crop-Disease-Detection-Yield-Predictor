@@ -1,0 +1,48 @@
+data:
+  raw_data_dir: data/raw
+  processed_data_dir: data/processed
+  splits_dir: data/splits
+  manifests_dir: data/manifests 
+  train_split: 0.7
+  val_split: 0.2
+  test_split: 0.1
+
+drone:
+  source: "data/sample/crop_field.mp4"   # for simulation; replace with rtsp://<drone-ip>/live
+  frame_rate: 1
+  frame_width: 1280
+  frame_height: 720
+
+storage:
+  use_minio: false
+  minio:
+    endpoint: "http://localhost:9000"
+    access_key: "minioadmin"
+    secret_key: "minioadmin"
+    bucket: "crop-ai-raw"
+
+training:
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.001
+  device: "cuda"
+
+evaluation:
+  metrics: ["accuracy", "f1", "precision", "recall"]
+
+logging:
+  level: "INFO"
+
+model:
+  name: "resnet50"
+  checkpoint_dir: models/checkpoints
+  export_dir: models/exports
+
+features:
+  use_gradcam: true
+  send_alerts: true
+  alert_method: "dashboard"
+
+deployment:
+  use_triton: true
+  triton_repo: triton_model_repo

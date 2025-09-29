@@ -1,0 +1,78 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+conda-env/
+
+# Logs
+logs/
+*.log
+
+# Data
+data/raw/
+data/processed/
+data/splits/
+
+# Models & checkpoints
+models/checkpoints/
+models/exports/
+triton_model_repo/
+
+# Notebooks checkpoints
+*.ipynb_checkpoints
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs/editors
+.vscode/
+.idea/
+*.iml
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+
+# Environments
+.env
+.venv/
+*.env
+
+# Checkpoints and data
+models/checkpoints/
+data/raw/
+data/processed/
+*.pth
+*.h5
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+node_modules/
+src/dashboard/node_modules/
+
+# Python
+venv/
+venv_triton/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
