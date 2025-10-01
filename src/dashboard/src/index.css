@@ -2,27 +2,152 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom modern variables for a sleek, dark-accented look */
-:root {
-  /* Primary Green (for a natural, crop-related feel) */
-  --color-primary: #10b981; /* Emerald 500 */
-  /* Secondary Accent (for charts, loading) */
-  --color-accent: #3b82f6; /* Blue 500 */
-  /* Background (off-black/dark grey for modern contrast) */
-  --color-background: #0f172a; /* Slate 900 */
-  /* Surface/Card (slightly lighter than background) */
-  --color-surface: #1e293b; /* Slate 800 */
-  /* Text */
-  --color-text-light: #f1f5f9; /* Slate 100 */
-  --color-text-muted: #94a3b8; /* Slate 400 */
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Agricultural green theme */
+    --background: 0 0% 100%;
+    --foreground: 142 71% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 142 71% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 142 71% 15%;
+
+    /* Primary: Fresh agricultural green */
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 142 76% 50%;
+
+    /* Secondary: Lighter green for accents */
+    --secondary: 142 40% 92%;
+    --secondary-foreground: 142 71% 15%;
+
+    /* Muted: Soft backgrounds */
+    --muted: 142 20% 96%;
+    --muted-foreground: 142 20% 45%;
+
+    /* Accent: Amber/gold for highlights */
+    --accent: 45 93% 47%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Success green */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning amber */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Destructive red */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 142 30% 88%;
+    --input: 142 30% 88%;
+    --ring: 142 76% 36%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 142 40% 98%;
+    --sidebar-foreground: 142 71% 15%;
+    --sidebar-primary: 142 76% 36%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 142 40% 92%;
+    --sidebar-accent-foreground: 142 71% 15%;
+    --sidebar-border: 142 30% 88%;
+    --sidebar-ring: 142 76% 36%;
+
+    /* Chart colors */
+    --chart-1: 142 76% 36%;
+    --chart-2: 45 93% 47%;
+    --chart-3: 173 58% 39%;
+    --chart-4: 262 52% 47%;
+    --chart-5: 27 87% 67%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(142 76% 36%) 0%, hsl(142 76% 50%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(142 20% 98%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(142 76% 36% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(142 76% 36% / 0.1), 0 2px 4px -1px hsl(142 76% 36% / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(142 76% 36% / 0.1), 0 4px 6px -2px hsl(142 76% 36% / 0.05);
+    --shadow-glow: 0 0 20px hsl(142 76% 50% / 0.3);
+  }
+
+  .dark {
+    --background: 142 50% 8%;
+    --foreground: 142 20% 95%;
+
+    --card: 142 40% 12%;
+    --card-foreground: 142 20% 95%;
+
+    --popover: 142 40% 12%;
+    --popover-foreground: 142 20% 95%;
+
+    --primary: 142 76% 50%;
+    --primary-foreground: 142 71% 15%;
+    --primary-glow: 142 76% 60%;
+
+    --secondary: 142 30% 20%;
+    --secondary-foreground: 142 20% 95%;
+
+    --muted: 142 30% 16%;
+    --muted-foreground: 142 20% 65%;
+
+    --accent: 45 93% 47%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 142 76% 50%;
+    --success-foreground: 142 71% 15%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 142 30% 24%;
+    --input: 142 30% 24%;
+    --ring: 142 76% 50%;
+
+    --sidebar-background: 142 40% 12%;
+    --sidebar-foreground: 142 20% 95%;
+    --sidebar-primary: 142 76% 50%;
+    --sidebar-primary-foreground: 142 71% 15%;
+    --sidebar-accent: 142 30% 20%;
+    --sidebar-accent-foreground: 142 20% 95%;
+    --sidebar-border: 142 30% 24%;
+    --sidebar-ring: 142 76% 50%;
+
+    --chart-1: 142 76% 50%;
+    --chart-2: 45 93% 47%;
+    --chart-3: 173 58% 45%;
+    --chart-4: 262 52% 53%;
+    --chart-5: 27 87% 67%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(142 76% 40%) 0%, hsl(142 76% 60%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(142 40% 12%) 0%, hsl(142 30% 16%) 100%);
+    
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4), 0 2px 4px -1px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.5), 0 4px 6px -2px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 25px hsl(142 76% 50% / 0.4);
+  }
 }
 
-/* Set up the global background and text colors */
-body {
-  @apply bg-[color:var(--color-background)] text-[color:var(--color-text-light)] font-sans;
-}
+@layer base {
+  * {
+    @apply border-border;
+  }
 
-/* Custom class for the main container to handle a modern, centered layout */
-.modern-container {
-    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+  body {
+    @apply bg-background text-foreground;
+  }
 }
