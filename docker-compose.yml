@@ -1,6 +1,25 @@
-version: "3.8"
-
 services:
+  backend:
+    build:
+      context: .  # project root
+      dockerfile: ./src/api/Dockerfile  # keep your Dockerfile here
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app  # mount the entire src folder
+    environment:
+      - PYTHONPATH=/app
+    command: uvicorn src.api.app:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build:
+      context: ./src/dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
@@ -13,6 +32,6 @@ services:
     image: grafana/grafana:latest
     container_name: grafana
     ports:
-      - "3000:3000"
+      - "3001:3000"
     depends_on:
       - prometheus

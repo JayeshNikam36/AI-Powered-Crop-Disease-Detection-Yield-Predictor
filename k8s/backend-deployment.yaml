@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crop-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crop-backend
+  template:
+    metadata:
+      labels:
+        app: crop-backend
+    spec:
+      containers:
+      - name: crop-backend
+        image: jayznnn/crop-backend:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: PYTHONPATH
+          value: "/app"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: crop-backend
+spec:
+  type: ClusterIP
+  selector:
+    app: crop-backend
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000

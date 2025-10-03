@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crop-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crop-frontend
+  template:
+    metadata:
+      labels:
+        app: crop-frontend
+    spec:
+      containers:
+      - name: crop-frontend
+        image: jayznnn/crop-frontend:latest
+        ports:
+        - containerPort: 80

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: crop-backend
+  labels:
+    app: crop-backend
+spec:
+  type: ClusterIP  # Internal service for frontend to access
+  selector:
+    app: crop-backend
+  ports:
+    - protocol: TCP
+      port: 8000        # The port other pods will use to reach this service
+      targetPort: 8000  # The port your backend container is listening on

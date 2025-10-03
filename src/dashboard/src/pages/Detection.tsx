@@ -11,7 +11,7 @@ export default function Detection() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [result, setResult] = useState<any>(null);
 
-  const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:8000"; // set VITE_API_URL if needed
+  const API_BASE = import.meta.env.VITE_API_URL ?? ""; // set VITE_API_URL if needed
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] ?? null;
@@ -40,7 +40,7 @@ export default function Detection() {
       const fd = new FormData();
       fd.append("file", selectedFile);
 
-      const res = await fetch(`${API_BASE}/api/predict`, {
+      const res = await fetch(`/api/predict`, {
         method: "POST",
         body: fd,
       });
