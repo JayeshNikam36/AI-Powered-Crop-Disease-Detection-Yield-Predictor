@@ -8,6 +8,8 @@ __pycache__/
 .env
 .venv/
 venv/
+.venv_triton/
+venv_triton/
 node_modules/
 dashboard/node_modules/
 __MACOSX
