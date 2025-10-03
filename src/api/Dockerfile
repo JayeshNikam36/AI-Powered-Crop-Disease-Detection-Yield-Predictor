@@ -1,25 +1,21 @@
-# src/api/Dockerfile
-
+# Use Python slim image
 FROM python:3.10.11-slim
 
+# Set working directory
 WORKDIR /app
 
-# system deps for OpenCV & PIL
-RUN apt-get update && apt-get install -y \
-    libgl1 \
-    libglib2.0-0 \
-    && rm -rf /var/lib/apt/lists/*
-
-# copy requirements (from src/api)
+# Install dependencies
 COPY requirements.txt .
-
 RUN pip install --no-cache-dir -r requirements.txt
 
-# copy backend source code
-COPY . .
+# Copy src folder from repo root
+COPY ./src ./src
 
-# expose uvicorn port
+# Set environment variable so Python can find src
+ENV PYTHONPATH=/app
+
+# Expose port for FastAPI
 EXPOSE 8000
 
-# start server
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+# Start the app
+CMD ["uvicorn", "src.api.app:app", "--host", "0.0.0.0", "--port", "8000"]
