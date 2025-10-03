@@ -253,3 +253,7 @@ async def predict(file: UploadFile = File(...)):
     }
 
     return JSONResponse(response)
+@app.get("/healthz")
+async def health():
+    return {"status": "ok"}
+
