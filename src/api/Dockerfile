@@ -14,11 +14,11 @@ COPY ../../requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy entire src folder
-COPY . ./src
+COPY src ./src
 
 # Set PYTHONPATH so Python can find src
 ENV PYTHONPATH=/app
 
 EXPOSE 8000
 
-CMD ["uvicorn", "api.app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "src.api.app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
