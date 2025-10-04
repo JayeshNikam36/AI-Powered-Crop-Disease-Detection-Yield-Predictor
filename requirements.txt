@@ -18,3 +18,4 @@ pyaml
 pandas
 onnx
 onnxruntime
+opencv-python-headless
